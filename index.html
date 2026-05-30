@@ -5,78 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Hailey Emma Creative Studio — Curated Interiors &amp; Timeless Design</title>
 <meta name="description" content="Hailey Emma Creative Studio — curated interiors, timeless design, extraordinary spaces. Full-service interior design and curation." />
-
-<!-- Open Graph -->
 <meta property="og:title" content="Hailey Emma Creative Studio" />
 <meta property="og:description" content="Curated interiors &amp; timeless design for extraordinary spaces." />
 <meta property="og:url" content="https://lemcolc.com" />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://lemcolc.com/assets/banner.webp" />
-<meta property="og:image:width" content="1180" />
-<meta property="og:image:height" content="587" />
-
-<!-- JSON-LD Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Hailey Emma Creative Studio",
-  "image": "https://lemcolc.com/assets/logo.webp",
-  "url": "https://lemcolc.com",
-  "description": "Full-service interior design and curation — furniture selection, spatial planning, renovation styling, and art curation.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "251 Crosby Street, Suite 4B",
-    "addressLocality": "New York",
-    "addressRegion": "NY",
-    "postalCode": "10012"
-  },
-  "telephone": "+1-212-555-1234",
-  "email": "hello@haileyemma.com",
-  "areaServed": "New York Metropolitan Area",
-  "priceRange": "$$$"
-}
-</script>
-
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Hailey Emma Creative Studio","image":"https://lemcolc.com/assets/logo.webp","url":"https://lemcolc.com","description":"Full-service interior design and curation.","address":{"@type":"PostalAddress","streetAddress":"251 Crosby Street, Suite 4B","addressLocality":"New York","addressRegion":"NY","postalCode":"10012"},"telephone":"+1-212-555-1234","email":"hello@haileyemma.com","areaServed":"New York Metropolitan Area","priceRange":"$$$"}</script>
 <link rel="icon" type="image/webp" href="assets/logo.webp" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
 <style>
-/* =============================================================
-   Hailey Emma Creative Studio — Single-file Site
-   ============================================================= */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-
-:root {
-  --cream: #f5f0eb;
-  --warm-white: #faf8f5;
-  --charcoal: #2c2724;
-  --taupe: #8a7f78;
-  --blush: #d4a99e;
-  --light-stone: #e8e0d9;
-  --mid-stone: #d4c9bc;
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --sp-xs: .5rem;  --sp-sm: 1rem;  --sp-md: 2rem;  --sp-lg: 4rem;  --sp-xl: 6rem;
-  --ease: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
+:root{--cream:#f5f0eb;--warm-white:#faf8f5;--charcoal:#2c2724;--taupe:#8a7f78;--blush:#d4a99e;--light-stone:#e8e0d9;--font-serif:'Cormorant Garamond',Georgia,serif;--font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--sp-xs:.5rem;--sp-sm:1rem;--sp-md:2rem;--sp-lg:4rem;--sp-xl:6rem;--ease:0.35s cubic-bezier(0.4,0,0.2,1)}
 html{scroll-behavior:smooth}
 body{font-family:var(--font-sans);font-weight:300;color:var(--charcoal);background:var(--warm-white);line-height:1.6;overflow-x:hidden}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none;transition:color var(--ease)}
 .container{width:100%;max-width:1200px;margin:0 auto;padding:0 var(--sp-md)}
 
-/* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:.85rem 2.2rem;font-family:var(--font-sans);font-size:.9rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;transition:all var(--ease)}
 .btn-primary{background:var(--charcoal);color:var(--warm-white);border-color:var(--charcoal)}
 .btn-primary:hover{background:transparent;color:var(--charcoal)}
 .btn-outline{background:transparent;color:var(--charcoal);border-color:var(--charcoal)}
 .btn-outline:hover{background:var(--charcoal);color:var(--warm-white)}
 
-/* Sections */
 .section{padding:var(--sp-xl) 0}
 .section-alt{background:var(--cream)}
 .section-dark{background:var(--charcoal);color:var(--warm-white)}
@@ -85,26 +38,23 @@ a{color:inherit;text-decoration:none;transition:color var(--ease)}
 .section-tag{display:inline-block;font-family:var(--font-sans);font-size:.75rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--blush);margin-bottom:var(--sp-xs)}
 .section-header h2{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3rem);font-weight:500;color:inherit;line-height:1.2}
 .divider{width:40px;height:1px;background:var(--blush);margin:var(--sp-sm) auto 0}
-.text-center{text-align:center}
 
-/* Header / Nav */
-.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,248,245,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(44,39,36,.06);transition:background var(--ease)}
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,248,245,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(44,39,36,.06)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
 .logo-link{display:flex;align-items:center;gap:var(--sp-sm)}
 .logo{width:38px;height:38px;border-radius:50%;object-fit:cover}
 .logo-text{font-family:var(--font-serif);font-size:1.25rem;font-weight:500;color:var(--charcoal);line-height:1}
 .logo-text small{font-family:var(--font-sans);font-size:.65rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;display:block;color:var(--taupe);margin-top:2px}
-
 .nav{display:flex;gap:var(--sp-md)}
 .nav a{font-size:.85rem;font-weight:400;letter-spacing:.06em;color:var(--taupe);position:relative;padding:.25rem 0}
 .nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--charcoal);transition:width var(--ease)}
 .nav a:hover{color:var(--charcoal)}
 .nav a:hover::after{width:100%}
-
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
 .hamburger span{display:block;width:24px;height:1.5px;background:var(--charcoal);transition:all var(--ease)}
 
-/* Hero */
+/* HERO */
 .hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:center;overflow:hidden}
 .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.05);animation:heroZoom 20s ease-in-out infinite alternate}
 @keyframes heroZoom{0%{transform:scale(1.05)}100%{transform:scale(1.15)}}
@@ -114,19 +64,18 @@ a{color:inherit;text-decoration:none;transition:color var(--ease)}
 .hero-content p{font-size:1.15rem;font-weight:300;color:rgba(250,248,245,.85);margin-bottom:var(--sp-md);line-height:1.7}
 .hero-content .btn-primary{background:var(--warm-white);color:var(--charcoal);border-color:var(--warm-white)}
 .hero-content .btn-primary:hover{background:transparent;color:var(--warm-white)}
-
 .hero-scroll-indicator{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:2;cursor:pointer}
 .hero-scroll-indicator span{display:block;width:1px;height:40px;background:linear-gradient(to bottom,rgba(250,248,245,.6),transparent);animation:scrollPulse 2s ease-in-out infinite}
 @keyframes scrollPulse{0%,100%{opacity:1;transform:scaleY(1)}50%{opacity:.3;transform:scaleY(.6)}}
 
-/* About */
+/* ABOUT */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-lg);align-items:center}
 .about-text p{margin-bottom:var(--sp-sm);font-size:1.05rem;color:var(--taupe);line-height:1.8}
 .about-text strong{color:var(--charcoal)}
 .about-text .btn{margin-top:var(--sp-sm)}
 .about-image-placeholder{background:var(--light-stone);height:400px;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:1.2rem;font-style:italic;color:var(--taupe)}
 
-/* Services */
+/* SERVICES */
 .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-md)}
 .service-card{background:var(--warm-white);padding:var(--sp-md) var(--sp-sm);text-align:center;transition:transform var(--ease),box-shadow var(--ease)}
 .service-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(44,39,36,.06)}
@@ -135,16 +84,61 @@ a{color:inherit;text-decoration:none;transition:color var(--ease)}
 .service-card h3{font-family:var(--font-serif);font-size:1.25rem;font-weight:500;margin-bottom:var(--sp-xs)}
 .service-card p{font-size:.9rem;color:var(--taupe);line-height:1.7}
 
-/* Portfolio */
-.portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-md)}
-.portfolio-item{position:relative;overflow:hidden;cursor:pointer}
-.portfolio-img{height:320px;transition:transform var(--ease)}
-.portfolio-item:hover .portfolio-img{transform:scale(1.03)}
-.portfolio-info{padding:var(--sp-sm) 0}
-.portfolio-info h3{font-family:var(--font-serif);font-size:1.2rem;font-weight:500}
-.portfolio-info p{font-size:.85rem;color:var(--taupe);margin-top:2px}
+/* ============================================================
+   PORTFOLIO — Bernard London style project cards
+   ============================================================ */
+.portfolio-filters{display:flex;justify-content:center;gap:var(--sp-md);margin-bottom:var(--sp-lg)}
+.portfolio-filters a{font-size:.8rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--taupe);position:relative;padding-bottom:4px}
+.portfolio-filters a.active,.portfolio-filters a:hover{color:var(--charcoal)}
+.portfolio-filters a.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--charcoal)}
 
-/* Contact */
+.project-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-lg)}
+.project-card{position:relative;overflow:hidden;cursor:pointer}
+.project-card .project-thumb{width:100%;height:420px;object-fit:cover;transition:transform .6s var(--ease)}
+.project-card:hover .project-thumb{transform:scale(1.04)}
+.project-card .project-info{padding:var(--sp-sm) 0}
+.project-card .project-info h3{font-family:var(--font-serif);font-size:1.3rem;font-weight:500}
+.project-card .project-info .project-meta{display:flex;gap:var(--sp-sm);margin-top:4px}
+.project-card .project-info .project-meta span{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--taupe)}
+.project-card .project-info .project-meta span:first-child{color:var(--blush)}
+
+/* ============================================================
+   FEATURED PROJECT — full detail / gallery
+   ============================================================ */
+.featured-project{margin-top:var(--sp-xl);padding-top:var(--sp-xl);border-top:1px solid var(--light-stone)}
+.featured-project .project-hero{width:100%;height:540px;object-fit:cover;margin-bottom:var(--sp-md)}
+.featured-project .project-head{margin-bottom:var(--sp-md)}
+.featured-project .project-head h2{font-family:var(--font-serif);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:500}
+.featured-project .project-head .project-tags{display:flex;gap:var(--sp-sm);margin-top:var(--sp-xs)}
+.featured-project .project-head .project-tags span{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--taupe)}
+.featured-project .project-head .project-tags span:first-child{color:var(--blush)}
+.featured-project .project-desc{font-size:1.05rem;color:var(--taupe);line-height:1.8;max-width:720px;margin-bottom:var(--sp-lg)}
+
+/* Image gallery — Bernard London style grid */
+.gallery{display:grid;gap:var(--sp-md)}
+.gallery-full{grid-template-columns:1fr}
+.gallery-split{grid-template-columns:1fr 1fr}
+.gallery img{width:100%;height:auto;object-fit:cover;display:block}
+.gallery .gallery-img-landscape{aspect-ratio:3/2}
+.gallery .gallery-img-portrait{aspect-ratio:2/3}
+.gallery .gallery-img-square{aspect-ratio:1/1}
+.gallery-full img{max-height:600px;width:100%}
+
+/* Gallery image wrapper for consistent sizing */
+.gallery-figure{overflow:hidden;position:relative}
+.gallery-figure img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.gallery-figure:hover img{transform:scale(1.04)}
+
+/* RELATED PROJECTS — 2-col grid */
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-md)}
+.related-card{position:relative;overflow:hidden;cursor:pointer}
+.related-card img{width:100%;height:360px;object-fit:cover;transition:transform .6s var(--ease)}
+.related-card:hover img{transform:scale(1.04)}
+.related-card .related-info{position:absolute;bottom:0;left:0;right:0;padding:var(--sp-md);background:linear-gradient(transparent,rgba(44,39,36,.7))}
+.related-card .related-info h3{font-family:var(--font-serif);font-size:1.2rem;font-weight:500;color:#fff}
+.related-card .related-info p{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:4px}
+
+/* CONTACT */
 .contact-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:var(--sp-lg)}
 .contact-info p{font-size:1.05rem;color:rgba(250,248,245,.8);margin-bottom:var(--sp-md);line-height:1.8}
 .contact-detail{margin-bottom:var(--sp-sm)}
@@ -156,7 +150,7 @@ a{color:inherit;text-decoration:none;transition:color var(--ease)}
 .contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--blush)}
 .contact-form .btn{align-self:flex-start}
 
-/* Footer */
+/* FOOTER */
 .footer{background:#1f1b19;color:rgba(250,248,245,.6);padding:var(--sp-md) 0}
 .footer-inner{display:flex;align-items:center;justify-content:space-between}
 .footer-brand{display:flex;align-items:center;gap:var(--sp-sm)}
@@ -167,25 +161,28 @@ a{color:inherit;text-decoration:none;transition:color var(--ease)}
 .footer-social a:hover{color:var(--blush)}
 .footer-social a svg{width:100%;height:100%}
 
-/* Responsive */
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
 @media(max-width:1024px){.services-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:768px){
   .nav{position:fixed;top:72px;left:0;right:0;background:var(--warm-white);flex-direction:column;padding:var(--sp-md);gap:var(--sp-sm);transform:translateY(-120%);opacity:0;transition:all var(--ease);border-bottom:1px solid rgba(44,39,36,.06)}
   .nav.open{transform:translateY(0);opacity:1}
   .hamburger{display:flex}
-  .about-grid,.contact-grid{grid-template-columns:1fr}
-  .portfolio-grid,.services-grid{grid-template-columns:1fr}
+  .about-grid,.contact-grid,.project-grid,.gallery-split,.related-grid{grid-template-columns:1fr}
+  .services-grid,.portfolio-filters{grid-template-columns:1fr;flex-direction:column;align-items:center}
+  .featured-project .project-hero{height:300px}
+  .project-card .project-thumb{height:280px}
+  .gallery-full img{max-height:350px}
   .footer-inner{flex-direction:column;gap:var(--sp-sm);text-align:center}
 }
-
-/* Scroll-triggered animations */
-.fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
-.fade-up.visible{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
 
-<!-- ========== NAV ========== -->
+<!-- NAV -->
 <header class="header">
   <div class="container header-inner">
     <a href="#" class="logo-link">
@@ -193,18 +190,16 @@ a{color:inherit;text-decoration:none;transition:color var(--ease)}
       <span class="logo-text">Hailey Emma <small>Creative Studio</small></span>
     </a>
     <nav class="nav" id="mainNav">
+      <a href="#portfolio">Portfolio</a>
       <a href="#about">About</a>
       <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button class="hamburger" id="hamburger" aria-label="Menu" type="button">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menu" type="button"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<!-- ========== HERO ========== -->
+<!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-overlay"></div>
   <picture>
@@ -216,13 +211,143 @@ a{color:inherit;text-decoration:none;transition:color var(--ease)}
     <p>Curated interiors &amp; timeless design for extraordinary spaces.</p>
     <a href="#portfolio" class="btn btn-primary">View Our Work</a>
   </div>
-  <div class="hero-scroll-indicator" aria-label="Scroll to content">
-    <span></span>
+  <div class="hero-scroll-indicator" aria-label="Scroll to content"><span></span></div>
+</section>
+
+<!-- ============================================================
+     PORTFOLIO — Project cards
+     ============================================================ -->
+<section class="section" id="portfolio" aria-label="Portfolio">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Our Work</span>
+      <h2>Selected Projects</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="portfolio-filters">
+      <a href="#" class="active">All</a>
+      <a href="#">Private Residential</a>
+      <a href="#">Property Development</a>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-card fade-up">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Modern Villa" class="project-thumb" loading="lazy" />
+        <div class="project-info">
+          <h3>Modern Villa</h3>
+          <div class="project-meta">
+            <span>PRIVATE RESIDENTIAL</span>
+            <span>HAMPTONS</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card fade-up">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Coastal Retreat" class="project-thumb" loading="lazy" />
+        <div class="project-info">
+          <h3>Coastal Retreat</h3>
+          <div class="project-meta">
+            <span>PRIVATE RESIDENTIAL</span>
+            <span>MONTAUK</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ========== ABOUT ========== -->
-<section class="section" id="about" aria-label="About">
+<!-- ============================================================
+     FEATURED PROJECT — Full gallery with pool & interior
+     ============================================================ -->
+<section class="section section-alt featured-project" aria-label="Featured Project">
+  <div class="container">
+    <div class="project-head">
+      <h2>Modern Villa — Hamptons</h2>
+      <div class="project-tags">
+        <span>PRIVATE RESIDENTIAL</span>
+        <span>HAMPTONS</span>
+        <span>2026</span>
+      </div>
+    </div>
+    <p class="project-desc">This 4,200 sq ft modern villa underwent a full interior transformation. The brief called for a seamless connection between indoor and outdoor living — with the pool terrace as the central organizing element. Material palette of limestone, white oak, and textured linen creates a calm, cohesive narrative throughout.</p>
+
+    <!-- Full-width hero image of the pool -->
+    <div class="gallery gallery-full">
+      <div class="gallery-figure">
+        <img src="https://images.unsplash.com/photo-1576013551627-0cc20b2c2f07?w=1400&q=80" alt="Pool terrace with loungers and landscaping" class="gallery-img-landscape" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- 2-column split gallery: interior + pool detail -->
+    <div class="gallery gallery-split" style="margin-top:var(--sp-md)">
+      <div class="gallery-figure">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80" alt="Living room with high ceilings and natural light" class="gallery-img-landscape" loading="lazy" />
+      </div>
+      <div class="gallery-figure">
+        <img src="https://images.unsplash.com/photo-1600566753086-00f18f6b5ca2?w=800&q=80" alt="Pool and outdoor lounge area" class="gallery-img-landscape" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Full-width interior -->
+    <div class="gallery gallery-full" style="margin-top:var(--sp-md)">
+      <div class="gallery-figure">
+        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=1400&q=80" alt="Open plan kitchen and dining area" class="gallery-img-landscape" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- 2-column: portrait + landscape -->
+    <div class="gallery gallery-split" style="margin-top:var(--sp-md);grid-template-columns:1fr 1.5fr">
+      <div class="gallery-figure">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80" alt="Bedroom interior" class="gallery-img-portrait" loading="lazy" />
+      </div>
+      <div class="gallery-figure">
+        <img src="https://images.unsplash.com/photo-1600582204069-30c1b2f4f812?w=1000&q=80" alt="Bathroom with marble finishes" class="gallery-img-landscape" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Two interior detail shots side by side -->
+    <div class="gallery gallery-split" style="margin-top:var(--sp-md)">
+      <div class="gallery-figure">
+        <img src="https://images.unsplash.com/photo-1616137466211-f939a420be84?w=800&q=80" alt="Staircase detail" class="gallery-img-landscape" loading="lazy" />
+      </div>
+      <div class="gallery-figure">
+        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80" alt="Dining room" class="gallery-img-landscape" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MORE PROJECTS — Related projects overlay cards
+     ============================================================ -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">More Projects</span>
+      <h2>Explore Further</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="related-grid">
+      <div class="related-card fade-up">
+        <img src="https://images.unsplash.com/photo-1600573472556-1868a440c59f?w=800&q=80" alt="Townhouse Renovation" loading="lazy" />
+        <div class="related-info">
+          <h3>Brooklyn Townhouse</h3>
+          <p>PRIVATE RESIDENTIAL — BROOKLYN</p>
+        </div>
+      </div>
+      <div class="related-card fade-up">
+        <img src="https://images.unsplash.com/photo-1600607687644-c74c5c23c2c4?w=800&q=80" alt="Soho Loft" loading="lazy" />
+        <div class="related-info">
+          <h3>Soho Loft</h3>
+          <p>PROPERTY DEVELOPMENT — SOHO</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section section-alt" id="about" aria-label="About">
   <div class="container">
     <div class="section-header">
       <span class="section-tag">About</span>
@@ -236,16 +361,14 @@ a{color:inherit;text-decoration:none;transition:color var(--ease)}
         <a href="#contact" class="btn btn-outline">Start a Conversation</a>
       </div>
       <div class="about-image">
-        <div class="about-image-placeholder">
-          <span>Spaces crafted with intention</span>
-        </div>
+        <div class="about-image-placeholder"><span>Spaces crafted with intention</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== SERVICES ========== -->
-<section class="section section-alt" id="services" aria-label="Services">
+<!-- SERVICES -->
+<section class="section" id="services" aria-label="Services">
   <div class="container">
     <div class="section-header">
       <span class="section-tag">What We Do</span>
@@ -277,51 +400,7 @@ a{color:inherit;text-decoration:none;transition:color var(--ease)}
   </div>
 </section>
 
-<!-- ========== PORTFOLIO ========== -->
-<section class="section" id="portfolio" aria-label="Portfolio">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Our Work</span>
-      <h2>Selected Projects</h2>
-      <div class="divider"></div>
-    </div>
-    <div class="portfolio-grid">
-      <div class="portfolio-item fade-up">
-        <div class="portfolio-img" style="background:linear-gradient(135deg,#d4c9bc,#c9b9a8)"></div>
-        <div class="portfolio-info">
-          <h3>Residential Penthouse</h3>
-          <p>Full interior curation — Manhattan</p>
-        </div>
-      </div>
-      <div class="portfolio-item fade-up">
-        <div class="portfolio-img" style="background:linear-gradient(135deg,#b8a99a,#a89888)"></div>
-        <div class="portfolio-info">
-          <h3>Modern Townhouse</h3>
-          <p>Renovation styling &amp; space planning — Brooklyn</p>
-        </div>
-      </div>
-      <div class="portfolio-item fade-up">
-        <div class="portfolio-img" style="background:linear-gradient(135deg,#c9b9a8,#b8a99a)"></div>
-        <div class="portfolio-info">
-          <h3>Boutique Hotel Lobby</h3>
-          <p>Commercial interior design — Soho</p>
-        </div>
-      </div>
-      <div class="portfolio-item fade-up">
-        <div class="portfolio-img" style="background:linear-gradient(135deg,#ddd2c6,#d4c9bc)"></div>
-        <div class="portfolio-info">
-          <h3>Coastal Retreat</h3>
-          <p>Full-scope design &amp; curation — Hamptons</p>
-        </div>
-      </div>
-    </div>
-    <div class="text-center" style="margin-top:3rem">
-      <a href="#" class="btn btn-outline">View All Projects</a>
-    </div>
-  </div>
-</section>
-
-<!-- ========== CONTACT ========== -->
+<!-- CONTACT -->
 <section class="section section-dark" id="contact" aria-label="Contact">
   <div class="container">
     <div class="section-header light">
@@ -332,18 +411,9 @@ a{color:inherit;text-decoration:none;transition:color var(--ease)}
     <div class="contact-grid">
       <div class="contact-info">
         <p>Ready to transform your space? We'd love to hear about your project.</p>
-        <div class="contact-detail">
-          <strong>Email</strong>
-          <a href="mailto:hello@haileyemma.com">hello@haileyemma.com</a>
-        </div>
-        <div class="contact-detail">
-          <strong>Phone</strong>
-          <a href="tel:+12125551234">+1 (212) 555-1234</a>
-        </div>
-        <div class="contact-detail">
-          <strong>Studio</strong>
-          <address>251 Crosby Street, Suite 4B<br />New York, NY 10012</address>
-        </div>
+        <div class="contact-detail"><strong>Email</strong><a href="mailto:hello@haileyemma.com">hello@haileyemma.com</a></div>
+        <div class="contact-detail"><strong>Phone</strong><a href="tel:+121****1234">+1 (212) 555-1234</a></div>
+        <div class="contact-detail"><strong>Studio</strong><address>251 Crosby Street, Suite 4B<br />New York, NY 10012</address></div>
       </div>
       <form class="contact-form" id="contactForm">
         <input type="text" placeholder="Your Name" required />
@@ -356,7 +426,7 @@ a{color:inherit;text-decoration:none;transition:color var(--ease)}
   </div>
 </section>
 
-<!-- ========== FOOTER ========== -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-brand">
@@ -364,43 +434,22 @@ a{color:inherit;text-decoration:none;transition:color var(--ease)}
       <p>&copy; 2026 Hailey Emma Creative Studio. All rights reserved.</p>
     </div>
     <div class="footer-social">
-      <a href="#" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-      </a>
-      <a href="#" aria-label="Pinterest">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.237 2.636 7.855 6.356 9.312-.087-.791-.166-2.003.034-2.868.182-.78 1.172-4.971 1.172-4.971s-.299-.599-.299-1.484c0-1.39.806-2.428 1.81-2.428.852 0 1.264.64 1.264 1.408 0 .858-.546 2.14-.828 3.329-.236.995.5 1.807 1.48 1.807 1.776 0 3.142-1.873 3.142-4.577 0-2.394-1.72-4.068-4.177-4.068-2.845 0-4.515 2.134-4.515 4.34 0 .86.331 1.78.744 2.282a.3.3 0 0 1 .069.288c-.076.316-.245.995-.278 1.134-.043.183-.145.222-.334.133-1.247-.58-2.027-2.405-2.027-3.874 0-3.155 2.292-6.052 6.61-6.052 3.469 0 6.165 2.472 6.165 5.777 0 3.447-2.174 6.222-5.19 6.222-1.013 0-1.966-.527-2.29-1.15l-.624 2.378c-.226.87-.835 1.958-1.244 2.622.936.29 1.93.447 2.958.447 5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
-      </a>
-      <a href="#" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-      </a>
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.237 2.636 7.855 6.356 9.312-.087-.791-.166-2.003.034-2.868.182-.78 1.172-4.971 1.172-4.971s-.299-.599-.299-1.484c0-1.39.806-2.428 1.81-2.428.852 0 1.264.64 1.264 1.408 0 .858-.546 2.14-.828 3.329-.236.995.5 1.807 1.48 1.807 1.776 0 3.142-1.873 3.142-4.577 0-2.394-1.72-4.068-4.177-4.068-2.845 0-4.515 2.134-4.515 4.34 0 .86.331 1.78.744 2.282a.3.3 0 0 1 .069.288c-.076.316-.245.995-.278 1.134-.043.183-.145.222-.334.133-1.247-.58-2.027-2.405-2.027-3.874 0-3.155 2.292-6.052 6.61-6.052 3.469 0 6.165 2.472 6.165 5.777 0 3.447-2.174 6.222-5.19 6.222-1.013 0-1.966-.527-2.29-1.15l-.624 2.378c-.226.87-.835 1.958-1.244 2.622.936.29 1.93.447 2.958.447 5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg></a>
+      <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
     </div>
   </div>
 </footer>
 
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
-  // Mobile nav toggle
   const h=document.getElementById('hamburger'),n=document.getElementById('mainNav')
-  if(h&&n){h.addEventListener('click',()=>n.classList.toggle('open'))
-    n.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>n.classList.remove('open')))}
-
-  // Scroll indicator click → about section
-  document.querySelector('.hero-scroll-indicator')?.addEventListener('click',()=>
-    document.getElementById('about')?.scrollIntoView({behavior:'smooth'}))
-
-  // Header opacity on scroll
+  if(h&&n){h.addEventListener('click',()=>n.classList.toggle('open'));n.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>n.classList.remove('open')))}
+  document.querySelector('.hero-scroll-indicator')?.addEventListener('click',()=>document.getElementById('portfolio')?.scrollIntoView({behavior:'smooth'}))
   const header=document.querySelector('.header')
-  window.addEventListener('scroll',()=>{
-    header.style.background=window.pageYOffset>100?'rgba(250,248,245,.97)':'rgba(250,248,245,.92)'
-    header.style.borderBottomColor=window.pageYOffset>100?'rgba(44,39,36,.1)':'rgba(44,39,36,.06)'})
-
-  // Contact form
+  window.addEventListener('scroll',()=>{header.style.background=window.pageYOffset>100?'rgba(250,248,245,.97)':'rgba(250,248,245,.92)';header.style.borderBottomColor=window.pageYOffset>100?'rgba(44,39,36,.1)':'rgba(44,39,36,.06)'})
   const f=document.getElementById('contactForm')
-  if(f){f.addEventListener('submit',e=>{e.preventDefault();const b=f.querySelector('.btn'),t=b.textContent
-    b.textContent='Thank You — We\'ll Be in Touch';b.disabled=!0
-    setTimeout(()=>{b.textContent=t;b.disabled=!1;f.reset()},3000)})}
-
-  // Scroll fade-up observer
+  if(f){f.addEventListener('submit',e=>{e.preventDefault();const b=f.querySelector('.btn'),t=b.textContent;b.textContent='Thank You — We\'ll Be in Touch';b.disabled=!0;setTimeout(()=>{b.textContent=t;b.disabled=!1;f.reset()},3000)})}
   const o=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.15})
   document.querySelectorAll('.fade-up').forEach(e=>o.observe(e))
 })
