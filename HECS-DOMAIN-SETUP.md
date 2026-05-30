@@ -9,7 +9,9 @@
 
 ## What this guide covers
 
-Your domain `lemcolc.com` is currently pointed at **Namecheap's parked page** (an IP that shows "coming soon"). We need to repoint it to GitHub Pages so your site loads at `https://lemcolc.com`.
+Your domain `lemcolc.com` is currently pointed at **Namecheap's parked page** (a URL forward that shows "coming soon"). We need to repoint it to GitHub Pages so your site loads at `https://lemcolc.com`.
+
+> **⚠️ IMPORTANT — CNAME timing:** The `CNAME` file in the repo has been **removed** so the site works right now at `https://pmb2.github.io/HECS-website/`. Once you finish the DNS steps below, tell me and I'll add the CNAME file back — then the site will serve from `https://lemcolc.com`. (If I add it before DNS propagates, the site goes 404 everywhere, which is what happened earlier.)
 
 **DNS Status (current):**
 
