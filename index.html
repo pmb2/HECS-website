@@ -1,224 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hailey Emma Creative Studio</title>
-  <meta name="description" content="Hailey Emma Creative Studio — curated interiors, timeless design, extraordinary spaces." />
-  <link rel="icon" type="image/png" href="assets/logo.png" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hailey Emma Creative Studio — Curated Interiors &amp; Timeless Design</title>
+<meta name="description" content="Hailey Emma Creative Studio — curated interiors, timeless design, extraordinary spaces. Full-service interior design and curation." />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Hailey Emma Creative Studio" />
+<meta property="og:description" content="Curated interiors &amp; timeless design for extraordinary spaces." />
+<meta property="og:url" content="https://lemcolc.com" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://lemcolc.com/assets/banner.webp" />
+<meta property="og:image:width" content="1180" />
+<meta property="og:image:height" content="587" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Hailey Emma Creative Studio",
+  "image": "https://lemcolc.com/assets/logo.webp",
+  "url": "https://lemcolc.com",
+  "description": "Full-service interior design and curation — furniture selection, spatial planning, renovation styling, and art curation.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "251 Crosby Street, Suite 4B",
+    "addressLocality": "New York",
+    "addressRegion": "NY",
+    "postalCode": "10012"
+  },
+  "telephone": "+1-212-555-1234",
+  "email": "hello@haileyemma.com",
+  "areaServed": "New York Metropolitan Area",
+  "priceRange": "$$$"
+}
+</script>
+
+<link rel="icon" type="image/webp" href="assets/logo.webp" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+/* =============================================================
+   Hailey Emma Creative Studio — Single-file Site
+   ============================================================= */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root {
+  --cream: #f5f0eb;
+  --warm-white: #faf8f5;
+  --charcoal: #2c2724;
+  --taupe: #8a7f78;
+  --blush: #d4a99e;
+  --light-stone: #e8e0d9;
+  --mid-stone: #d4c9bc;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --sp-xs: .5rem;  --sp-sm: 1rem;  --sp-md: 2rem;  --sp-lg: 4rem;  --sp-xl: 6rem;
+  --ease: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);font-weight:300;color:var(--charcoal);background:var(--warm-white);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none;transition:color var(--ease)}
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 var(--sp-md)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.85rem 2.2rem;font-family:var(--font-sans);font-size:.9rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;transition:all var(--ease)}
+.btn-primary{background:var(--charcoal);color:var(--warm-white);border-color:var(--charcoal)}
+.btn-primary:hover{background:transparent;color:var(--charcoal)}
+.btn-outline{background:transparent;color:var(--charcoal);border-color:var(--charcoal)}
+.btn-outline:hover{background:var(--charcoal);color:var(--warm-white)}
+
+/* Sections */
+.section{padding:var(--sp-xl) 0}
+.section-alt{background:var(--cream)}
+.section-dark{background:var(--charcoal);color:var(--warm-white)}
+.section-header{text-align:center;margin-bottom:var(--sp-lg)}
+.section-header.light{color:var(--warm-white)}
+.section-tag{display:inline-block;font-family:var(--font-sans);font-size:.75rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--blush);margin-bottom:var(--sp-xs)}
+.section-header h2{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3rem);font-weight:500;color:inherit;line-height:1.2}
+.divider{width:40px;height:1px;background:var(--blush);margin:var(--sp-sm) auto 0}
+.text-center{text-align:center}
+
+/* Header / Nav */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,248,245,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(44,39,36,.06);transition:background var(--ease)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo-link{display:flex;align-items:center;gap:var(--sp-sm)}
+.logo{width:38px;height:38px;border-radius:50%;object-fit:cover}
+.logo-text{font-family:var(--font-serif);font-size:1.25rem;font-weight:500;color:var(--charcoal);line-height:1}
+.logo-text small{font-family:var(--font-sans);font-size:.65rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;display:block;color:var(--taupe);margin-top:2px}
+
+.nav{display:flex;gap:var(--sp-md)}
+.nav a{font-size:.85rem;font-weight:400;letter-spacing:.06em;color:var(--taupe);position:relative;padding:.25rem 0}
+.nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--charcoal);transition:width var(--ease)}
+.nav a:hover{color:var(--charcoal)}
+.nav a:hover::after{width:100%}
+
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--charcoal);transition:all var(--ease)}
+
+/* Hero */
+.hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;transform:scale(1.05);animation:heroZoom 20s ease-in-out infinite alternate}
+@keyframes heroZoom{0%{transform:scale(1.05)}100%{transform:scale(1.15)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(44,39,36,.6)0%,rgba(44,39,36,.3)50%,rgba(44,39,36,.15)100%);z-index:1}
+.hero-content{position:relative;z-index:2;color:var(--warm-white);max-width:700px}
+.hero-content h1{font-family:var(--font-serif);font-size:clamp(2.8rem,6vw,5rem);font-weight:500;line-height:1.08;margin-bottom:var(--sp-sm);letter-spacing:-.02em}
+.hero-content p{font-size:1.15rem;font-weight:300;color:rgba(250,248,245,.85);margin-bottom:var(--sp-md);line-height:1.7}
+.hero-content .btn-primary{background:var(--warm-white);color:var(--charcoal);border-color:var(--warm-white)}
+.hero-content .btn-primary:hover{background:transparent;color:var(--warm-white)}
+
+.hero-scroll-indicator{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:2;cursor:pointer}
+.hero-scroll-indicator span{display:block;width:1px;height:40px;background:linear-gradient(to bottom,rgba(250,248,245,.6),transparent);animation:scrollPulse 2s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:1;transform:scaleY(1)}50%{opacity:.3;transform:scaleY(.6)}}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-lg);align-items:center}
+.about-text p{margin-bottom:var(--sp-sm);font-size:1.05rem;color:var(--taupe);line-height:1.8}
+.about-text strong{color:var(--charcoal)}
+.about-text .btn{margin-top:var(--sp-sm)}
+.about-image-placeholder{background:var(--light-stone);height:400px;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:1.2rem;font-style:italic;color:var(--taupe)}
+
+/* Services */
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-md)}
+.service-card{background:var(--warm-white);padding:var(--sp-md) var(--sp-sm);text-align:center;transition:transform var(--ease),box-shadow var(--ease)}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(44,39,36,.06)}
+.service-icon{width:48px;height:48px;margin:0 auto var(--sp-sm);color:var(--blush)}
+.service-icon svg{width:100%;height:100%}
+.service-card h3{font-family:var(--font-serif);font-size:1.25rem;font-weight:500;margin-bottom:var(--sp-xs)}
+.service-card p{font-size:.9rem;color:var(--taupe);line-height:1.7}
+
+/* Portfolio */
+.portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-md)}
+.portfolio-item{position:relative;overflow:hidden;cursor:pointer}
+.portfolio-img{height:320px;transition:transform var(--ease)}
+.portfolio-item:hover .portfolio-img{transform:scale(1.03)}
+.portfolio-info{padding:var(--sp-sm) 0}
+.portfolio-info h3{font-family:var(--font-serif);font-size:1.2rem;font-weight:500}
+.portfolio-info p{font-size:.85rem;color:var(--taupe);margin-top:2px}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:var(--sp-lg)}
+.contact-info p{font-size:1.05rem;color:rgba(250,248,245,.8);margin-bottom:var(--sp-md);line-height:1.8}
+.contact-detail{margin-bottom:var(--sp-sm)}
+.contact-detail strong{display:block;font-family:var(--font-sans);font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--blush);margin-bottom:4px}
+.contact-detail a,.contact-detail address{font-style:normal;font-size:.95rem;color:rgba(250,248,245,.85)}
+.contact-form{display:flex;flex-direction:column;gap:var(--sp-sm)}
+.contact-form input,.contact-form textarea{padding:.9rem 1.1rem;background:rgba(250,248,245,.08);border:1px solid rgba(250,248,245,.12);color:var(--warm-white);font-family:var(--font-sans);font-size:.9rem;font-weight:300;transition:border-color var(--ease)}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:rgba(250,248,245,.35)}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--blush)}
+.contact-form .btn{align-self:flex-start}
+
+/* Footer */
+.footer{background:#1f1b19;color:rgba(250,248,245,.6);padding:var(--sp-md) 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between}
+.footer-brand{display:flex;align-items:center;gap:var(--sp-sm)}
+.footer-logo{width:28px;height:28px;border-radius:50%;object-fit:cover}
+.footer-brand p{font-size:.8rem}
+.footer-social{display:flex;gap:var(--sp-sm)}
+.footer-social a{width:20px;height:20px;color:rgba(250,248,245,.4);transition:color var(--ease)}
+.footer-social a:hover{color:var(--blush)}
+.footer-social a svg{width:100%;height:100%}
+
+/* Responsive */
+@media(max-width:1024px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  .nav{position:fixed;top:72px;left:0;right:0;background:var(--warm-white);flex-direction:column;padding:var(--sp-md);gap:var(--sp-sm);transform:translateY(-120%);opacity:0;transition:all var(--ease);border-bottom:1px solid rgba(44,39,36,.06)}
+  .nav.open{transform:translateY(0);opacity:1}
+  .hamburger{display:flex}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .portfolio-grid,.services-grid{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;gap:var(--sp-sm);text-align:center}
+}
+
+/* Scroll-triggered animations */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+</style>
 </head>
 <body>
 
-  <!-- ========== NAV ========== -->
-  <header class="header">
-    <div class="container header-inner">
-      <a href="#" class="logo-link">
-        <img src="assets/logo.png" alt="Hailey Emma Creative Studio" class="logo" />
-        <span class="logo-text">Hailey Emma <small>Creative Studio</small></span>
+<!-- ========== NAV ========== -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="#" class="logo-link">
+      <img src="assets/logo.webp" alt="Hailey Emma Creative Studio" class="logo" width="38" height="38" />
+      <span class="logo-text">Hailey Emma <small>Creative Studio</small></span>
+    </a>
+    <nav class="nav" id="mainNav">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menu" type="button">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="hero">
+  <div class="hero-overlay"></div>
+  <picture>
+    <source srcset="assets/banner.webp" type="image/webp" />
+    <img src="assets/banner.png" alt="" class="hero-bg" aria-hidden="true" />
+  </picture>
+  <div class="container hero-content">
+    <h1>Hailey Emma<br />Creative Studio</h1>
+    <p>Curated interiors &amp; timeless design for extraordinary spaces.</p>
+    <a href="#portfolio" class="btn btn-primary">View Our Work</a>
+  </div>
+  <div class="hero-scroll-indicator" aria-label="Scroll to content">
+    <span></span>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="section" id="about" aria-label="About">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">About</span>
+      <h2>Design Philosophy</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>At <strong>Hailey Emma Creative Studio</strong>, we believe every space tells a story. Our approach blends refined aesthetics with purposeful curation — layering texture, light, and form to create interiors that feel both elevated and deeply personal.</p>
+        <p>From concept to completion, we work closely with each client to translate vision into reality. Whether reimagining a single room or orchestrating a full-property transformation, our studio brings the same dedication to craft and attention to detail to every project we undertake.</p>
+        <a href="#contact" class="btn btn-outline">Start a Conversation</a>
+      </div>
+      <div class="about-image">
+        <div class="about-image-placeholder">
+          <span>Spaces crafted with intention</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SERVICES ========== -->
+<section class="section section-alt" id="services" aria-label="Services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">What We Do</span>
+      <h2>Our Services</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h3>Interior Curation</h3>
+        <p>Full-service interior design and curation — from furniture selection to spatial planning, finishes, and styling.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+        <h3>Renovation Styling</h3>
+        <p>Material selection, fixture specification, and styling guidance for renovation and new-build projects.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+        <h3>Space Planning</h3>
+        <p>Thoughtful layouts that balance flow, function, and beauty — maximizing every square foot of your space.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3>Art &amp; Object Curation</h3>
+        <p>Sourcing and placing artwork, sculpture, and decorative objects that add depth and personality.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PORTFOLIO ========== -->
+<section class="section" id="portfolio" aria-label="Portfolio">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Our Work</span>
+      <h2>Selected Projects</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item fade-up">
+        <div class="portfolio-img" style="background:linear-gradient(135deg,#d4c9bc,#c9b9a8)"></div>
+        <div class="portfolio-info">
+          <h3>Residential Penthouse</h3>
+          <p>Full interior curation — Manhattan</p>
+        </div>
+      </div>
+      <div class="portfolio-item fade-up">
+        <div class="portfolio-img" style="background:linear-gradient(135deg,#b8a99a,#a89888)"></div>
+        <div class="portfolio-info">
+          <h3>Modern Townhouse</h3>
+          <p>Renovation styling &amp; space planning — Brooklyn</p>
+        </div>
+      </div>
+      <div class="portfolio-item fade-up">
+        <div class="portfolio-img" style="background:linear-gradient(135deg,#c9b9a8,#b8a99a)"></div>
+        <div class="portfolio-info">
+          <h3>Boutique Hotel Lobby</h3>
+          <p>Commercial interior design — Soho</p>
+        </div>
+      </div>
+      <div class="portfolio-item fade-up">
+        <div class="portfolio-img" style="background:linear-gradient(135deg,#ddd2c6,#d4c9bc)"></div>
+        <div class="portfolio-info">
+          <h3>Coastal Retreat</h3>
+          <p>Full-scope design &amp; curation — Hamptons</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center" style="margin-top:3rem">
+      <a href="#" class="btn btn-outline">View All Projects</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="section section-dark" id="contact" aria-label="Contact">
+  <div class="container">
+    <div class="section-header light">
+      <span class="section-tag">Get in Touch</span>
+      <h2>Let's Create Together</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>Ready to transform your space? We'd love to hear about your project.</p>
+        <div class="contact-detail">
+          <strong>Email</strong>
+          <a href="mailto:hello@haileyemma.com">hello@haileyemma.com</a>
+        </div>
+        <div class="contact-detail">
+          <strong>Phone</strong>
+          <a href="tel:+12125551234">+1 (212) 555-1234</a>
+        </div>
+        <div class="contact-detail">
+          <strong>Studio</strong>
+          <address>251 Crosby Street, Suite 4B<br />New York, NY 10012</address>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <input type="text" placeholder="Project Type" />
+        <textarea rows="5" placeholder="Tell us about your project..." required></textarea>
+        <button type="submit" class="btn btn-primary">Send Inquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="assets/logo.webp" alt="HECS" class="footer-logo" width="28" height="28" />
+      <p>&copy; 2026 Hailey Emma Creative Studio. All rights reserved.</p>
+    </div>
+    <div class="footer-social">
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
       </a>
-      <nav class="nav" id="mainNav">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="#" aria-label="Pinterest">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.237 2.636 7.855 6.356 9.312-.087-.791-.166-2.003.034-2.868.182-.78 1.172-4.971 1.172-4.971s-.299-.599-.299-1.484c0-1.39.806-2.428 1.81-2.428.852 0 1.264.64 1.264 1.408 0 .858-.546 2.14-.828 3.329-.236.995.5 1.807 1.48 1.807 1.776 0 3.142-1.873 3.142-4.577 0-2.394-1.72-4.068-4.177-4.068-2.845 0-4.515 2.134-4.515 4.34 0 .86.331 1.78.744 2.282a.3.3 0 0 1 .069.288c-.076.316-.245.995-.278 1.134-.043.183-.145.222-.334.133-1.247-.58-2.027-2.405-2.027-3.874 0-3.155 2.292-6.052 6.61-6.052 3.469 0 6.165 2.472 6.165 5.777 0 3.447-2.174 6.222-5.19 6.222-1.013 0-1.966-.527-2.29-1.15l-.624 2.378c-.226.87-.835 1.958-1.244 2.622.936.29 1.93.447 2.958.447 5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+      </a>
+      <a href="#" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
     </div>
-  </header>
+  </div>
+</footer>
 
-  <!-- ========== HERO ========== -->
-  <section class="hero" id="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-bg" style="background-image: url('assets/banner.png');"></div>
-    <div class="container hero-content">
-      <h1>Hailey Emma<br />Creative Studio</h1>
-      <p>Curated interiors &amp; timeless design for extraordinary spaces.</p>
-      <a href="#portfolio" class="btn btn-primary">View Our Work</a>
-    </div>
-    <div class="hero-scroll-indicator">
-      <span></span>
-    </div>
-  </section>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  // Mobile nav toggle
+  const h=document.getElementById('hamburger'),n=document.getElementById('mainNav')
+  if(h&&n){h.addEventListener('click',()=>n.classList.toggle('open'))
+    n.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>n.classList.remove('open')))}
 
-  <!-- ========== ABOUT ========== -->
-  <section class="section" id="about">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">About</span>
-        <h2>Design Philosophy</h2>
-        <div class="divider"></div>
-      </div>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>
-            At <strong>Hailey Emma Creative Studio</strong>, we believe every space tells a story.
-            Our approach blends refined aesthetics with purposeful curation — layering texture,
-            light, and form to create interiors that feel both elevated and deeply personal.
-          </p>
-          <p>
-            From concept to completion, we work closely with each client to translate vision
-            into reality. Whether reimagining a single room or orchestrating a full-property
-            transformation, our studio brings the same dedication to craft and attention to
-            detail to every project we undertake.
-          </p>
-          <a href="#contact" class="btn btn-outline">Start a Conversation</a>
-        </div>
-        <div class="about-image">
-          <div class="about-image-placeholder">
-            <span>Spaces crafted with intention</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  // Scroll indicator click → about section
+  document.querySelector('.hero-scroll-indicator')?.addEventListener('click',()=>
+    document.getElementById('about')?.scrollIntoView({behavior:'smooth'}))
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section section-alt" id="services">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">What We Do</span>
-        <h2>Our Services</h2>
-        <div class="divider"></div>
-      </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <h3>Interior Curation</h3>
-          <p>Full-service interior design and curation — from furniture selection to spatial planning, finishes, and styling.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-          </div>
-          <h3>Renovation Styling</h3>
-          <p>Material selection, fixture specification, and styling guidance for renovation and new-build projects.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-          </div>
-          <h3>Space Planning</h3>
-          <p>Thoughtful layouts that balance flow, function, and beauty — maximizing every square foot of your space.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </div>
-          <h3>Art &amp; Object Curation</h3>
-          <p>Sourcing and placing artwork, sculpture, and decorative objects that add depth and personality.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  // Header opacity on scroll
+  const header=document.querySelector('.header')
+  window.addEventListener('scroll',()=>{
+    header.style.background=window.pageYOffset>100?'rgba(250,248,245,.97)':'rgba(250,248,245,.92)'
+    header.style.borderBottomColor=window.pageYOffset>100?'rgba(44,39,36,.1)':'rgba(44,39,36,.06)'})
 
-  <!-- ========== PORTFOLIO ========== -->
-  <section class="section" id="portfolio">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Our Work</span>
-        <h2>Selected Projects</h2>
-        <div class="divider"></div>
-      </div>
-      <div class="portfolio-grid">
-        <div class="portfolio-item">
-          <div class="portfolio-img" style="background: linear-gradient(135deg, #d4c9bc 0%, #c9b9a8 100%);"></div>
-          <div class="portfolio-info">
-            <h3>Residential Penthouse</h3>
-            <p>Full interior curation — Manhattan</p>
-          </div>
-        </div>
-        <div class="portfolio-item">
-          <div class="portfolio-img" style="background: linear-gradient(135deg, #b8a99a 0%, #a89888 100%);"></div>
-          <div class="portfolio-info">
-            <h3>Modern Townhouse</h3>
-            <p>Renovation styling &amp; space planning — Brooklyn</p>
-          </div>
-        </div>
-        <div class="portfolio-item">
-          <div class="portfolio-img" style="background: linear-gradient(135deg, #c9b9a8 0%, #b8a99a 100%);"></div>
-          <div class="portfolio-info">
-            <h3>Boutique Hotel Lobby</h3>
-            <p>Commercial interior design — Soho</p>
-          </div>
-        </div>
-        <div class="portfolio-item">
-          <div class="portfolio-img" style="background: linear-gradient(135deg, #ddd2c6 0%, #d4c9bc 100%);"></div>
-          <div class="portfolio-info">
-            <h3>Coastal Retreat</h3>
-            <p>Full-scope design &amp; curation — Hamptons</p>
-          </div>
-        </div>
-      </div>
-      <div class="text-center" style="margin-top:3rem;">
-        <a href="#" class="btn btn-outline">View All Projects</a>
-      </div>
-    </div>
-  </section>
+  // Contact form
+  const f=document.getElementById('contactForm')
+  if(f){f.addEventListener('submit',e=>{e.preventDefault();const b=f.querySelector('.btn'),t=b.textContent
+    b.textContent='Thank You — We\'ll Be in Touch';b.disabled=!0
+    setTimeout(()=>{b.textContent=t;b.disabled=!1;f.reset()},3000)})}
 
-  <!-- ========== CONTACT ========== -->
-  <section class="section section-dark" id="contact">
-    <div class="container">
-      <div class="section-header light">
-        <span class="section-tag">Get in Touch</span>
-        <h2>Let's Create Together</h2>
-        <div class="divider"></div>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <p>Ready to transform your space? We'd love to hear about your project.</p>
-          <div class="contact-detail">
-            <strong>Email</strong>
-            <a href="mailto:hello@haileyemma.com">hello@haileyemma.com</a>
-          </div>
-          <div class="contact-detail">
-            <strong>Phone</strong>
-            <a href="tel:+12125551234">+1 (212) 555-1234</a>
-          </div>
-          <div class="contact-detail">
-            <strong>Studio</strong>
-            <address>251 Crosby Street, Suite 4B<br />New York, NY 10012</address>
-          </div>
-        </div>
-        <form class="contact-form" id="contactForm">
-          <input type="text" placeholder="Your Name" required />
-          <input type="email" placeholder="Your Email" required />
-          <input type="text" placeholder="Project Type" />
-          <textarea rows="5" placeholder="Tell us about your project..." required></textarea>
-          <button type="submit" class="btn btn-primary">Send Inquiry</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <img src="assets/logo.png" alt="HECS" class="footer-logo" />
-        <p>&copy; 2026 Hailey Emma Creative Studio. All rights reserved.</p>
-      </div>
-      <div class="footer-social">
-        <a href="#" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a>
-        <a href="#" aria-label="Pinterest">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.237 2.636 7.855 6.356 9.312-.087-.791-.166-2.003.034-2.868.182-.78 1.172-4.971 1.172-4.971s-.299-.599-.299-1.484c0-1.39.806-2.428 1.81-2.428.852 0 1.264.64 1.264 1.408 0 .858-.546 2.14-.828 3.329-.236.995.5 1.807 1.48 1.807 1.776 0 3.142-1.873 3.142-4.577 0-2.394-1.72-4.068-4.177-4.068-2.845 0-4.515 2.134-4.515 4.34 0 .86.331 1.78.744 2.282a.3.3 0 0 1 .069.288c-.076.316-.245.995-.278 1.134-.043.183-.145.222-.334.133-1.247-.58-2.027-2.405-2.027-3.874 0-3.155 2.292-6.052 6.61-6.052 3.469 0 6.165 2.472 6.165 5.777 0 3.447-2.174 6.222-5.19 6.222-1.013 0-1.966-.527-2.29-1.15l-.624 2.378c-.226.87-.835 1.958-1.244 2.622.936.29 1.93.447 2.958.447 5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
-        </a>
-        <a href="#" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
+  // Scroll fade-up observer
+  const o=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.15})
+  document.querySelectorAll('.fade-up').forEach(e=>o.observe(e))
+})
+</script>
 </body>
 </html>
