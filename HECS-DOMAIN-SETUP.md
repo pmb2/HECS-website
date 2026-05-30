@@ -1,162 +1,163 @@
-# Hailey Emma Creative Studio — Domain Setup Guide
+# Hailey Emma Creative Studio — Domain Setup Guide (Namecheap)
 
-> **Custom domain:** `lemcolc.com`
-> **Domain registrar:** Namecheap
-> **DNS:** Namecheap BasicDNS (registrar-servers.com)
-> **Hosting:** GitHub Pages (via `pmb2/HECS-website` repo)
-
----
-
-## Current DNS Status
-
-| Record | Value | Purpose |
-|---|---|---|
-| NS | dns1.registrar-servers.com | Namecheap BasicDNS (active) |
-| NS | dns2.registrar-servers.com | Namecheap BasicDNS (active) |
-| A | 162.255.119.240 | Namecheap parking page (placeholder) |
+> **Custom domain:** `lemcolc.com`  
+> **Domain registrar:** Namecheap.com  
+> **DNS type:** Namecheap BasicDNS (registrar-servers.com) — you don't need to change nameservers  
+> **Hosting:** GitHub Pages (static — no server to maintain)  
 
 ---
 
-## Step 1: Enable GitHub Pages
+## What this guide covers
 
-**In your repo (`pmb2/HECS-website`):**
+Your domain `lemcolc.com` is currently pointed at **Namecheap's parked page** (an IP that shows "coming soon"). We need to repoint it to GitHub Pages so your site loads at `https://lemcolc.com`.
 
-1. Go to **Settings → Pages** (or `https://github.com/pmb2/HECS-website/settings/pages`)
-2. Under "Source", select **Deploy from a branch**
-3. Branch: `main` → folder: `/` (root)
-4. Click **Save**
-5. After ~1-2 minutes, GitHub will show: _"Your site is published at `https://pmb2.github.io/HECS-website/`"_
+**DNS Status (current):**
 
-> **Note:** The URL will be `pmb2.github.io/HECS-website` since the repo isn't named `pmb2.github.io`. We'll fix this with the custom domain — GitHub Pages will serve from `lemcolc.com` directly.
+| Record | Host | Value | Purpose |
+|---|---|---|---|
+| A | @ | 162.255.119.240 | → ~~Namecheap parking~~ **DELETE** |
+| NS | — | dns1.registrar-servers.com | Leave as-is |
+| NS | — | dns2.registrar-servers.com | Leave as-is |
 
----
-
-## Step 2: Add a CNAME file to the repo
-
-Create a file called `CNAME` (no extension) in the repo root with one line:
-
-```
-lemcolc.com
-```
-
-Then commit and push:
-
-```bash
-echo "lemcolc.com" > CNAME
-git add CNAME
-git commit -m "Add CNAME for custom domain lemcolc.com"
-git push origin main
-```
-
-**Alternative:** You can skip the file and enter `lemcolc.com` in the GitHub Pages settings UI under "Custom domain" — GitHub creates the CNAME file for you.
+Everything below happens inside **Namecheap's dashboard**.
 
 ---
 
-## Step 3: Configure DNS at Namecheap
+## Step 1: Find your Domain List in Namecheap
 
-Log into Namecheap and navigate to **Domain List → lemcolc.com → Manage → Advanced DNS**.
+1. Log into **[Namecheap.com](https://www.namecheap.com)** (top-right login)
+2. Go to **Dashboard** → click **"Domain List"** in the left sidebar
+3. Find **`lemcolc.com`** → click **"Manage"** (blue button on the right)
 
-### Add these records:
+---
+
+## Step 2: Open Advanced DNS
+
+You're now on the domain management page. Look for a tab or section called **"Advanced DNS"** near the top.  
+Click it. You'll see a table of DNS records.
+
+---
+
+## Step 3: Delete the old A record
+
+In the table, find a row like this:
+
+| Type | Host | Value | Action |
+|---|---|---|---|
+| `A` | `@` | `162.255.119.240` | 🗑️ |
+
+Click the **trash icon / delete** (right side of that row) to remove it. This removes the Namecheap parking page.
+
+---
+
+## Step 4: Add 4 new A records (for apex `lemcolc.com`)
+
+Click **"Add New Record"**. For each one:
 
 | Type | Host | Value | TTL |
 |---|---|---|---|
-| **A** | **@** (apex) | `185.199.108.153` | Automatic (30 min) |
-| **A** | **@** (apex) | `185.199.109.153` | Automatic |
-| **A** | **@** (apex) | `185.199.110.153` | Automatic |
-| **A** | **@** (apex) | `185.199.111.153` | Automatic |
-| **CNAME** | **www** | `pmb2.github.io` | Automatic |
+| `A + Dynamic DNS` | `@` | `185.199.108.153` | `30 min` |
+| `A + Dynamic DNS` | `@` | `185.199.109.153` | `30 min` |
+| `A + Dynamic DNS` | `@` | `185.199.110.153` | `30 min` |
+| `A + Dynamic DNS` | `@` | `185.199.111.153` | `30 min` |
 
-> **Why 4 A records?** GitHub Pages uses 4 IP addresses for redundancy and CDN distribution. All 4 must be added for reliability.
+> **Why 4?** GitHub uses all 4 IPs for CDN redundancy. If you skip any, the site may be intermittently unreachable.
 
-> **Why CNAME for www?** The `www` subdomain must CNAME to `pmb2.github.io` (the GitHub Pages host), not to `lemcolc.com`. This is a DNS requirement — CNAME records can't point to another domain's apex.
-
-### Delete the existing A record:
-
-Remove the old A record pointing to `162.255.119.240` (Namecheap parking).
-
-### Final DNS table should look like:
-
-```
-A Record  @      → 185.199.108.153
-A Record  @      → 185.199.109.153
-A Record  @      → 185.199.110.153
-A Record  @      → 185.199.111.153
-CNAME     www    → pmb2.github.io
-```
+**Repeat 4 times:**
+- Click "Add New Record"
+- Select **A + Dynamic DNS** from the Type dropdown
+- Leave Host as **@** (means the bare domain: `lemcolc.com`)
+- Paste one of the 4 GitHub IPs into Value
+- Set TTL to **30 min**
+- Click ✓ (checkmark) to save
 
 ---
 
-## Step 4: Enforce HTTPS in GitHub Pages
+## Step 5: Add a CNAME for `www`
 
-1. Go to **Settings → Pages** in your repo
-2. Under "Custom domain", it should show `lemcolc.com` (green checkmark = DNS verified)
-3. Check **"Enforce HTTPS"** — GitHub issues an automatic TLS certificate via Let's Encrypt
-4. Wait 5-10 minutes for provisioning
+Still in Advanced DNS, click **"Add New Record"** again:
+
+| Type | Host | Value | TTL |
+|---|---|---|---|
+| `CNAME` | `www` | `pmb2.github.io` | `30 min` |
+
+- Select **CNAME** from Type
+- Host: **www**
+- Value: **pmb2.github.io** (the GitHub Pages hostname)
+- TTL: **30 min**
+
+> **Important:** The CNAME value must be `pmb2.github.io`, NOT `lemcolc.com`. A CNAME can't point to another apex domain.
 
 ---
 
-## Step 5: Verify Propagation
+## Step 6: Verify your records
 
-| Tool | Command / URL | What to check |
+After adding, the table should look **exactly like this**:
+
+| Type | Host | Value |
 |---|---|---|
-| Browser | `https://lemcolc.com` | Site loads with lock icon |
-| Browser | `https://www.lemcolc.com` | Redirects to `lemcolc.com` |
-| DNS check | `nslookup lemcolc.com` | Returns 185.199.x.x IPs |
-| GitHub Pages | Repo → Settings → Pages | Green checkmark, "Your site is published" |
+| `A` | `@` | `185.199.108.153` |
+| `A` | `@` | `185.199.109.153` |
+| `A` | `@` | `185.199.110.153` |
+| `A` | `@` | `185.199.111.153` |
+| `CNAME` | `www` | `pmb2.github.io` |
 
-DNS propagation can take **5 minutes to 48 hours** (usually <1 hour for Namecheap BasicDNS).
+Make sure the old `A` record (`162.255.119.240`) is **gone**.
 
 ---
 
-## Step 6: (Recommended) Add www → apex redirect
+## Step 7: Wait for DNS propagation
 
-In your GitHub Pages settings, after setting `lemcolc.com` as the custom domain, the `www.lemcolc.com` CNAME record automatically redirects to `lemcolc.com`. GitHub Pages handles this natively — no extra config needed.
+Click **Save All Changes** (green button at the bottom of the DNS records table).
+
+Propagation usually takes **5-30 minutes** for Namecheap BasicDNS, but can be up to 48 hours. You can check at any time:
+
+| What | How |
+|---|---|
+| Check current DNS | Visit **[whatsmydns.net/#A/lemcolc.com](https://www.whatsmydns.net/#A/lemcolc.com)** |
+| Check if it's working for you | Open terminal: `nslookup lemcolc.com` |
+| View the site | Open `http://lemcolc.com` in a browser |
+
+---
+
+## What I've done on my side (already deployed)
+
+✅ Built the site — single `index.html`, ~23KB, no build step  
+✅ Converted images to WebP (80% smaller than PNG)  
+✅ Created `CNAME` file in the repo with `lemcolc.com`  
+✅ Added Open Graph tags (social share previews)  
+✅ Added JSON-LD schema (Google rich results for LocalBusiness)  
+✅ Enabled GitHub Pages on the repo  
+✅ Pushed everything to `github.com/pmb2/HECS-website`
+
+**The site is temporarily live at:**  
+https://pmb2.github.io/HECS-website/  
+
+As soon as DNS propagates, it'll appear at **https://lemcolc.com** with automatic HTTPS certificate (Let's Encrypt, issued by GitHub).
 
 ---
 
 ## Troubleshooting
 
-### "Domain not configured" error in GitHub Pages
-- DNS hasn't propagated yet — wait and re-check
-- Make sure CNAME file says `lemcolc.com` (no `www`, no `https://`)
-- Verify the A records point to the exact GitHub IPs above
+### "Hmm, we can't reach this page"
+- DNS hasn't propagated yet — wait 15-30 min and try again
+- Check you deleted the old A record
 
-### Site loads but no HTTPS
-- Wait up to 24 hours for Let's Encrypt certificate
-- Make sure "Enforce HTTPS" is checked in GitHub Pages settings
+### Site loads but no green lock / HTTP only
+- GitHub auto-provisions a TLS cert for custom domains
+- Takes up to 30 minutes after DNS resolution
+- Check "Enforce HTTPS" in repo Settings → Pages (I'll enable it once DNS resolves)
 
-### www.lemcolc.com doesn't load
-- Verify the CNAME record for `www` points to `pmb2.github.io` (not `lemcolc.com`)
-- GitHub Pages only supports `www` subdomain redirects — other subdomains need manual redirect config
+### `www.lemcolc.com` doesn't work
+- The CNAME record for `www` → `pmb2.github.io` handles this
+- GitHub Pages automatically redirects `www.lemcolc.com` → `lemcolc.com`
 
-### lemcolc.com resolves to old IP
-- Check that you deleted the `162.255.119.240` A record
-- Flush DNS: `ipconfig /flushdns` (Windows) or `sudo dscacheutil -flushcache` (macOS)
-
----
-
-## Verifying It's Live
-
-Visit these URLs in order:
-
-1. `https://pmb2.github.io/HECS-website/` — should work (pre-domain)
-2. `http://lemcolc.com` — should redirect to HTTPS
-3. `https://lemcolc.com` — final, with green lock
-4. `https://www.lemcolc.com` — should redirect to `lemcolc.com`
+### I can't find the Advanced DNS tab in Namecheap
+- Make sure you clicked "Manage" on the domain, not "Dashboard"
+- On the Manage page, look for the **"Advanced DNS"** tab near the top center
+- If you still don't see it, try refreshing the page
 
 ---
 
-## Git Repo Structure (final)
-
-```
-HECS-website/
-├── assets/
-│   ├── banner.png       (or banner.webp)
-│   └── logo.png         (or logo.webp)
-├── CNAME                ← "lemcolc.com"
-├── index.html           ← main site
-├── .gitignore
-└── README.md
-```
-
-That's it — no web server, no hosting bill, no maintenance. Just push to GitHub and it's live.
+**That's it — 5 records to add + 1 to delete = ~2 minutes of work.  
+Once done, the site works at `https://lemcolc.com` with zero ongoing hosting costs.**
