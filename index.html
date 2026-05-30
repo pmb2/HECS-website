@@ -55,18 +55,32 @@ a{color:inherit;text-decoration:none;transition:color var(--ease)}
 .hamburger span{display:block;width:24px;height:1.5px;background:var(--charcoal);transition:all var(--ease)}
 
 /* HERO */
-.hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.05);animation:heroZoom 20s ease-in-out infinite alternate}
-@keyframes heroZoom{0%{transform:scale(1.05)}100%{transform:scale(1.15)}}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(44,39,36,.6)0%,rgba(44,39,36,.3)50%,rgba(44,39,36,.15)100%);z-index:1}
-.hero-content{position:relative;z-index:2;color:var(--warm-white);max-width:700px}
-.hero-content h1{font-family:var(--font-serif);font-size:clamp(2.8rem,6vw,5rem);font-weight:500;line-height:1.08;margin-bottom:var(--sp-sm);letter-spacing:-.02em}
-.hero-content p{font-size:1.15rem;font-weight:300;color:rgba(250,248,245,.85);margin-bottom:var(--sp-md);line-height:1.7}
+/* HERO SLIDESHOW — Bernard London style */
+.hero{position:relative;height:100vh;min-height:600px;overflow:hidden}
+.hero-slides{position:absolute;inset:0}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease-in-out;z-index:0}
+.hero-slide.active{opacity:1;z-index:1}
+.hero-slide img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(44,39,36,.6)0%,rgba(44,39,36,.3)50%,rgba(44,39,36,.15)100%);z-index:2}
+
+.hero-content{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:0 var(--sp-md) 7rem var(--sp-md)}
+.hero-content-inner{max-width:700px}
+.hero-content .hero-category{display:inline-block;font-family:var(--font-serif);font-size:1rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--blush);margin-bottom:.5rem;opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.hero-content .hero-category.show{opacity:1;transform:translateY(0)}
+.hero-content h1{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,4.2rem);font-weight:500;color:var(--warm-white);line-height:1.08;margin-bottom:var(--sp-sm);letter-spacing:-.02em;opacity:0;transform:translateY(30px);transition:opacity .6s ease .3s,transform .6s ease .3s}
+.hero-content h1.show{opacity:1;transform:translateY(0)}
+.hero-content .hero-btn{opacity:0;transform:translateY(20px);transition:opacity .6s ease .6s,transform .6s ease .6s}
+.hero-content .hero-btn.show{opacity:1;transform:translateY(0)}
 .hero-content .btn-primary{background:var(--warm-white);color:var(--charcoal);border-color:var(--warm-white)}
 .hero-content .btn-primary:hover{background:transparent;color:var(--warm-white)}
-.hero-scroll-indicator{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:2;cursor:pointer}
+
+.hero-scroll-indicator{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:3;cursor:pointer}
 .hero-scroll-indicator span{display:block;width:1px;height:40px;background:linear-gradient(to bottom,rgba(250,248,245,.6),transparent);animation:scrollPulse 2s ease-in-out infinite}
 @keyframes scrollPulse{0%,100%{opacity:1;transform:scaleY(1)}50%{opacity:.3;transform:scaleY(.6)}}
+
+.hero-dots{position:absolute;bottom:4rem;right:var(--sp-md);z-index:3;display:flex;gap:10px}
+.hero-dots span{width:8px;height:8px;border-radius:50%;background:rgba(250,248,245,.35);cursor:pointer;transition:all var(--ease)}
+.hero-dots span.active{background:var(--warm-white);width:24px;border-radius:4px}
 
 /* ABOUT */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-lg);align-items:center}
@@ -199,18 +213,42 @@ a{color:inherit;text-decoration:none;transition:color var(--ease)}
   </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO SLIDESHOW -->
 <section class="hero" id="hero">
   <div class="hero-overlay"></div>
-  <picture>
-    <source srcset="assets/banner.webp" type="image/webp" />
-    <img src="assets/banner.png" alt="" class="hero-bg" aria-hidden="true" />
-  </picture>
-  <div class="container hero-content">
-    <h1>Hailey Emma<br />Creative Studio</h1>
-    <p>Curated interiors &amp; timeless design for extraordinary spaces.</p>
-    <a href="#portfolio" class="btn btn-primary">View Our Work</a>
+  <div class="hero-slides" id="heroSlides">
+    <!-- Slide 1: Pool terrace -->
+    <div class="hero-slide active">
+      <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1600&q=80" alt="Pool terrace" loading="lazy" />
+    </div>
+    <!-- Slide 2: Interior living room -->
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80" alt="Modern living room" loading="lazy" />
+    </div>
+    <!-- Slide 3: Kitchen -->
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=1600&q=80" alt="Kitchen and dining" loading="lazy" />
+    </div>
   </div>
+
+  <div class="hero-content">
+    <div class="container" style="padding:0">
+      <div class="hero-content-inner">
+        <span class="hero-category show" id="heroCategory">PRIVATE RESIDENTIAL</span>
+        <h1 class="show" id="heroTitle">Waterfront Estate</h1>
+        <div class="hero-btn show">
+          <a href="#portfolio" class="btn btn-primary">View Our Work</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-dots" id="heroDots">
+    <span class="active"></span>
+    <span></span>
+    <span></span>
+  </div>
+
   <div class="hero-scroll-indicator" aria-label="Scroll to content"><span></span></div>
 </section>
 
@@ -443,13 +481,54 @@ a{color:inherit;text-decoration:none;transition:color var(--ease)}
 
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
+  // Slideshow
+  (function(){
+    const slides=document.querySelectorAll('.hero-slide'),dots=document.querySelectorAll('#heroDots span')
+    const cat=document.getElementById('heroCategory'),title=document.getElementById('heroTitle')
+    const slidesData=[
+      {category:'PRIVATE RESIDENTIAL',title:'Waterfront Estate'},
+      {category:'PRIVATE RESIDENTIAL',title:'Modern Villa'},
+      {category:'PROPERTY DEVELOPMENT',title:'Coastal Residence'}
+    ]
+    let i=0,interval
+    function go(n){
+      slides.forEach(s=>s.classList.remove('active'))
+      dots.forEach(d=>d.classList.remove('active'))
+      slides[n].classList.add('active')
+      dots[n].classList.add('active')
+      cat.textContent=slidesData[n].category
+      title.textContent=slidesData[n].title
+      cat.classList.remove('show')
+      title.classList.remove('show')
+      document.querySelector('.hero-btn')?.classList.remove('show')
+      requestAnimationFrame(()=>{
+        cat.classList.add('show')
+        setTimeout(()=>title.classList.add('show'),300)
+        setTimeout(()=>document.querySelector('.hero-btn')?.classList.add('show'),600)
+      })
+    }
+    function next(){i=(i+1)%slides.length;go(i)}
+    function start(){interval=setInterval(next,5000)}
+    dots.forEach((d,k)=>{d.addEventListener('click',()=>{clearInterval(interval);i=k;go(i);start()})})
+    go(0);start()
+  })()
+
+  // Mobile nav
   const h=document.getElementById('hamburger'),n=document.getElementById('mainNav')
   if(h&&n){h.addEventListener('click',()=>n.classList.toggle('open'));n.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>n.classList.remove('open')))}
+
+  // Hero scroll indicator
   document.querySelector('.hero-scroll-indicator')?.addEventListener('click',()=>document.getElementById('portfolio')?.scrollIntoView({behavior:'smooth'}))
+
+  // Header scroll effect
   const header=document.querySelector('.header')
   window.addEventListener('scroll',()=>{header.style.background=window.pageYOffset>100?'rgba(250,248,245,.97)':'rgba(250,248,245,.92)';header.style.borderBottomColor=window.pageYOffset>100?'rgba(44,39,36,.1)':'rgba(44,39,36,.06)'})
+
+  // Contact form
   const f=document.getElementById('contactForm')
   if(f){f.addEventListener('submit',e=>{e.preventDefault();const b=f.querySelector('.btn'),t=b.textContent;b.textContent='Thank You — We\'ll Be in Touch';b.disabled=!0;setTimeout(()=>{b.textContent=t;b.disabled=!1;f.reset()},3000)})}
+
+  // Scroll fade-up observer
   const o=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.15})
   document.querySelectorAll('.fade-up').forEach(e=>o.observe(e))
 })
